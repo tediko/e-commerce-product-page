@@ -1,0 +1,29 @@
+/* Colors */
+$c-white: hsl(0, 0%, 100%);
+$c-black: hsl(0, 0%, 0%);
+$c-black-75: hsla(0, 0%, 0%, 0.75);
+$c-orange: hsl(26, 100%, 55%);
+$c-orange-pale: hsl(25, 100%, 94%);
+$c-blue-dark: hsl(220, 13%, 13%);
+$c-blue-dark-grayish: hsl(219, 9%, 45%);
+$c-blue-grayish: hsl(220, 14%, 75%);
+$c-blue-grayish-light: hsl(223, 64%, 98%);
+
+
+/* Backgrounds */
+$bg-primary: hsl(0, 0%, 100%);
+$bg-overlay: hsla(0, 0%, 0%, 0.75);
+$bg-cart: hsl(0, 0%, 100%);
+$bg-menu: hsl(0, 0%, 100%);
+
+/* Typography */
+$ff-primary: "Kumbh Sans", sans-serif;
+
+/* Media query breakpoints */
+$breakpoints: (
+    xs: 23.5rem,
+    sm: 30.0625rem,
+    md: 48.0625rem,
+    lg: 64rem,
+    xlg: 75rem
+);
