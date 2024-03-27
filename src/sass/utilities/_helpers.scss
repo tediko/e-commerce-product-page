@@ -37,3 +37,9 @@
         font-size: clamp(0.938rem, 0.909rem + 0.121vw, 1rem);
     }
 }
+
+/* Container */
+.container {
+    max-width: 69.375rem;
+    margin: 0 auto;
+}
