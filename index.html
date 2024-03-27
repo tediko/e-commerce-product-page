@@ -10,7 +10,44 @@
     <title>E-commerce product page</title>
   </head>
   <body>
-    <h1>Hello world</h1>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header__container container">
+        <a href="#" class="header__logo" aria-label="Sneakers - Home">
+          <img class="header__logo-img" src="/shared/logo.svg" alt="">
+        </a>
+        <nav class="header__nav">
+          <button class="header__menu" type="button" aria-expanded="false" aria-label="toggle menu" data-menu>
+            <span class="header__menu-bars"></span>
+          </button>
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="#" class="header__link">Collections</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">Men</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">Women</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">About</a>
+            </li>
+            <li class="header__item">
+              <a href="#" class="header__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__options">
+          <button class="header__cart" type="button" aria-expanded="false" aria-label="toggle cart"></button>
+          <a href="#" class="header__profile" aria-label="user profile">
+            <img class="header__profile-img" src="/shared/image-avatar.png" alt="">
+          </a>
+        </div>
+      </div>
+    </header>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
