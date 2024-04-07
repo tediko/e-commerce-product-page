@@ -64,10 +64,6 @@
             transition: top 200ms ease,
                         transform 200ms ease 0.12s;
         }
-
-        &[aria-expanded="true"] + #{$root}__list {
-            display: flex;
-        }
     }
 
     &__menu-bars {
@@ -100,7 +96,8 @@
 
     &__list {
         position: absolute;
-        display: none;
+        display: flex;
+        visibility: hidden;
         flex-direction: column;
         gap: 1.25rem;
         top: 0;
@@ -111,6 +108,7 @@
         padding-top: 5.75rem;
         padding-left: 1.5625rem;
         z-index: 998;
+        transform: translateX(-100%);
 
         @include breakpoint('md') {
             position: static;
@@ -121,6 +119,14 @@
             height: unset;
             padding: 0;
             background-color: transparent;
+        }
+
+        &.open {
+            animation: nav-in 350ms ease-in-out forwards;
+        }
+        
+        &.close {
+            animation: nav-out 350ms ease-in-out forwards;
         }
     }
 
