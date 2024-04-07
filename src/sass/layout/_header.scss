@@ -201,9 +201,10 @@
     }
 
     &__profile {
+        outline: 2px solid $c-white;
+        border-radius: 50%;
+        
         @include breakpoint('md') {
-            outline: 2px solid $c-white;
-            border-radius: 50%;
             transition: outline-color 350ms ease-in-out;
 
             &:hover{
