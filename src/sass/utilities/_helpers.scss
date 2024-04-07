@@ -43,3 +43,63 @@
     max-width: 69.375rem;
     margin: 0 auto;
 }
+
+/* Overlay */
+.overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    background-color: $c-black-75;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 997;
+    
+    
+    &.open {
+        animation: overlay-in 350ms ease-in-out forwards;
+    }
+
+    &.close {
+        animation: overlay-out 350ms ease-in-out;
+    }
+}
+
+/* Animations */
+@keyframes overlay-in {
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes overlay-out {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes nav-in {
+    to {
+        visibility: visible;
+        transform: translateX(0);
+    }
+}
+
+@keyframes nav-out {
+    0% {
+        visibility: visible;
+        transform: translateX(0);
+    }
+    100% {
+        visibility: hidden;
+        transform: translateX(-100%);
+    }
+}
