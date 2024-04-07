@@ -28,13 +28,34 @@
     font-weight: 400;
     color: $c-blue-dark-grayish;
     line-height: 1.625;
+    font-size: 1rem;
 
-    &--md {
-        font-size: 1rem;
+    &--lg {
+        font-size: 1.75rem;
     }
-    
+
     &--sm {
         font-size: clamp(0.938rem, 0.909rem + 0.121vw, 1rem);
+    }
+
+    &--700 {
+        font-weight: 700;
+    }
+
+    &--lt {
+        text-decoration: line-through;
+    }
+
+    &--black {
+        color: $c-blue-dark;
+    }
+
+    &--orange {
+        color: $c-orange;
+    }
+
+    &--gray {
+        color: $c-blue-grayish;
     }
 }
 
