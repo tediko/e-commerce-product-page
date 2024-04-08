@@ -112,13 +112,14 @@
 
         @include breakpoint('md') {
             position: static;
-            display: flex;
+            visibility: visible;
             flex-direction: row;
             gap: 2.0625rem;
             width: unset;
             height: unset;
             padding: 0;
             background-color: transparent;
+            transform: unset;
         }
 
         &.open {
