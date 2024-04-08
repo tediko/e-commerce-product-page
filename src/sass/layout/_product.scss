@@ -1,0 +1,307 @@
+@use '../utilities' as *;
+
+/* Product */
+.product {
+    &__container {
+        @include breakpoint('sm') {
+            padding: 1.5rem;
+        }
+
+        @include breakpoint('md') {
+            display: grid;
+            grid-template-columns: clamp(21.875rem, 3.969rem + 37.255vw, 27.813rem) minmax(auto, 445px);
+            gap: 20px;
+            align-items: center;
+            max-width: 1015px;
+            margin: 0 auto;
+            justify-content: space-between;
+            padding-inline: 1.5rem;
+            padding-top: clamp(3rem, -4.916rem + 16.471vw, 5.625rem);
+        }
+
+        @include breakpoint('xlg') {
+            padding-inline: 0;
+        }
+    }
+
+    &__slider {
+        @include breakpoint('sm') {
+            padding-bottom: 1.5rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        @include breakpoint('md') {
+            padding: 0;
+            max-width: unset;
+            margin: 0;
+        }
+    }
+
+    &__track {
+        @include breakpoint('sm') {
+            border-radius: 16px;
+        }
+
+        @media (min-width: 37.5rem) {
+            margin-bottom: clamp(1rem, -0.415rem + 3.774vw, 2rem);
+        }
+    }
+
+    &__controls-mobile {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        padding: 1rem;
+        transform: translate(-50%, -50%);
+
+        @media (min-width: 37.5rem) {
+            display: none;
+        }
+    }
+
+    &__control-mobile {
+        position: relative;
+        background-color: $c-white;
+        border-radius: 50%;
+        border: none;
+        width: 40px;
+        height: 40px;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/shared/icon-previous.svg');
+            background-position: center;
+            background-size: 0.62rem;
+            background-repeat: no-repeat;
+        }
+
+        &--next {
+            &::before {
+                background-image: url('/shared/icon-next.svg');
+            }
+        }
+    }
+
+    &__controls {
+        display: none;
+        gap: 1.9375rem;
+        justify-content: center;
+
+        @media (min-width: 37.5rem) {
+            display: flex;
+        }
+    }
+
+    &__control {
+        position: relative;
+        width: 88px;
+        height: 88px;
+        border-radius: 16px;
+        border: none;
+        overflow: hidden;
+
+        @include breakpoint('md') {
+            width: clamp(60px, -1.527rem + 10.98vw, 88px);
+            height: clamp(60px, -1.527rem + 10.98vw, 88px);
+            cursor: pointer;
+        }
+        
+        &::before {
+            position: absolute;
+            content: '';
+            inset: 0;           
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+        }
+
+        &:nth-child(1)::before {
+            background-image: url('/shared/image-product-1.jpg');
+        }
+
+        &:nth-child(2)::before {
+            background-image: url('/shared/image-product-2.jpg');
+        }
+
+        &:nth-child(3)::before {
+            background-image: url('/shared/image-product-3.jpg');
+        }
+
+        &:nth-child(4)::before {
+            background-image: url('/shared/image-product-4.jpg');
+        } 
+
+        &.glide__bullet--active {
+            outline: 2px solid $c-orange;
+        }
+
+        &.glide__bullet--active::before {
+            opacity: 0.3;
+        }
+    }
+
+    &__info {
+        padding: 1.5rem;
+
+        @include breakpoint('sm') {
+            padding: 0;
+        }
+    }
+
+    &__title {
+        display: grid;
+        
+        span {
+            margin-bottom: 1rem;
+
+            &:nth-child(2) {
+                white-space: pre-line;
+            }
+        }
+    }
+
+    &__desc {
+        margin-bottom: 1.5rem;
+        max-width: 53ch;
+    }
+
+    &__price-wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        column-gap: 1.4375rem;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        @include breakpoint('md') {
+            grid-template-columns: auto 1fr;
+        }
+    }
+
+    &__paycut {
+        background: lighten($c-orange, 40);
+        padding-block: 0.25rem;
+        padding-inline: 0.625rem;
+        justify-self: start;
+        border-radius: 10px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @include breakpoint('md') {
+            flex-direction: row;
+        }
+    }
+
+    &__input-wrapper {
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: $c-blue-grayish-very-light;
+        padding-block: 1.12rem;
+        padding-inline: 1.5rem;
+        border-radius: 12px;
+
+        @include breakpoint('md') {
+            max-width: 9.8125rem;
+        }
+    }
+
+    &__input {
+        -moz-appearance: textfield;
+        appearance: textfield;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &::placeholder {
+            opacity: 1;
+        }
+    }
+
+    &__input-btn {
+        position: relative;
+        background-color: transparent;
+        border: none;
+        width: 20px;
+        height: 20px;
+
+        @include breakpoint('md') {
+            cursor: pointer;
+
+            &:hover::before {
+                opacity: 0.65;
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/shared/icon-minus.svg');
+            background-repeat: no-repeat;
+            background-size: 0.75rem;
+            background-position: center;
+            transition: opacity 350ms ease-in-out;
+        }
+
+        &--plus {
+            &::before {
+                background-image: url('/shared/icon-plus.svg');
+            }
+        }
+    }
+
+    &__submit {
+        position: relative;
+        background-color: $c-orange;
+        border: none;
+        color: $c-white;
+        padding-block: 0.94rem;
+        border-radius: 12px;
+        box-shadow: 1px 11px 24px -12px rgba(255, 126, 27, 1);
+
+        @include breakpoint('md') {
+            flex: 1;
+            cursor: pointer;
+            transition: background-color 350ms ease-in-out;
+
+            &:hover {
+                background-color: lighten($c-orange, 15);
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 25px;
+            height: 25px;
+            background-image: url("/shared/icon-cart-white.svg");
+            background-size: 1.2rem;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-left: -2rem;
+        }
+    }
+}
