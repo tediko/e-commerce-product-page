@@ -6,6 +6,7 @@
     padding-inline: 1.5rem;
     
     &__container {
+        position: relative;
         display: flex;
         align-items: end;
         padding-top: 1.1875rem;
@@ -181,7 +182,7 @@
         gap: clamp(1.375rem, 0.688rem + 2.931vw, 2.886rem);
     }
 
-    &__cart {
+    &__btn {
         border: none;
         mask-image: url("/shared/icon-cart.svg");
         mask-size: 100%;
@@ -219,6 +220,28 @@
 
         @include breakpoint('md') {
             width: clamp(36px, 0.689rem + 3.248vw, 50px);
+        }
+    }
+
+    &__cart {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 0.5rem;
+        margin-inline: -1rem;
+        
+        @include breakpoint('sm') {
+            max-width: 360px;
+            width: 100%;
+            left: unset;
+            box-shadow: 0px 7px 11px -6px $c-blue-dark-grayish;
+            margin-inline: 0;
+            margin-right: calc(clamp(1rem, -14rem + 20vw, 3rem) * -1);
+        }
+
+        @include breakpoint('md') {
+            top: 81%;
         }
     }
 }
