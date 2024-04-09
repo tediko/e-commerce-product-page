@@ -272,36 +272,4 @@
             }
         }
     }
-
-    &__submit {
-        position: relative;
-        background-color: $c-orange;
-        border: none;
-        color: $c-white;
-        padding-block: 0.94rem;
-        border-radius: 12px;
-        box-shadow: 1px 11px 24px -12px rgba(255, 126, 27, 1);
-
-        @include breakpoint('md') {
-            flex: 1;
-            cursor: pointer;
-            transition: background-color 350ms ease-in-out;
-
-            &:hover {
-                background-color: lighten($c-orange, 15);
-            }
-        }
-
-        &::before {
-            position: absolute;
-            content: "";
-            width: 25px;
-            height: 25px;
-            background-image: url("/shared/icon-cart-white.svg");
-            background-size: 1.2rem;
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-left: -2rem;
-        }
-    }
 }
