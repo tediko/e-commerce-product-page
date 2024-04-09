@@ -139,3 +139,24 @@
         transform: translateX(-100%);
     }
 }
+
+@keyframes cart-in {
+    to {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cart-out {
+    from {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0); 
+    }
+    to {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
