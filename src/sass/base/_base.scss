@@ -5,3 +5,7 @@ body {
     font-family: $ff-primary;
     background-color: $bg-primary;
 }
+
+html, body {
+    overflow-x: hidden;
+}
