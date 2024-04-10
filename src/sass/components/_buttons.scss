@@ -9,6 +9,11 @@
     font-weight: 700;
     padding-block: 0.94rem;
     border-radius: 12px;
+
+    &:focus-visible {
+        outline: 3px dotted $c-orange;
+        outline-offset: 3px;
+    }
     
     @include breakpoint('md') {
         cursor: pointer;
@@ -18,7 +23,6 @@
             background-color: lighten($c-orange, 15);
         }
     }
-    
     
     &--cart {
         box-shadow: 1px 11px 24px -12px $c-orange;
