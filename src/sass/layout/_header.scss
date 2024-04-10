@@ -21,8 +21,7 @@
 
     &__logo {
         &:focus-visible {
-            outline: 3px dotted $c-orange;
-            outline-offset: 3px;
+            @extend .focus;
         }
 
         @include breakpoint('md') {
@@ -51,8 +50,7 @@
         z-index: 999;
 
         &:focus-visible {
-            outline: 3px dotted $c-orange;
-            outline-offset: 3px;
+            @extend .focus;
         }
 
         @include breakpoint('md') {
@@ -207,7 +205,7 @@
         background-color: transparent;
 
         &:focus-visible {
-            outline: 3px dotted $c-orange;
+            @extend .focus;
             outline-offset: 12px;
             border-radius: 50%;
         }
@@ -260,8 +258,7 @@
         border-radius: 50%;
         
         &:focus-visible {
-            outline: 3px dotted $c-orange;
-            outline-offset: 3px;
+            @extend .focus;
         }
 
         @include breakpoint('md') {
