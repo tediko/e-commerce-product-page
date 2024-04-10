@@ -20,6 +20,12 @@
         padding-inline: 1.5rem;
         padding-top: 1.5rem;
         padding-bottom: 2rem;
+        max-height: 16.125rem;
+        overflow-y: scroll;
+        
+        @include breakpoint('sm') {
+            max-height: 25.625rem;
+        }
     }
 
     &__info {
