@@ -20,6 +20,11 @@
     }
 
     &__logo {
+        &:focus-visible {
+            outline: 3px dotted $c-orange;
+            outline-offset: 3px;
+        }
+
         @include breakpoint('md') {
             margin-right: 3.5313rem;
         }
@@ -143,6 +148,10 @@
                 width: 100%;
             }
 
+            &:has(#{$root}__link:focus-visible)::before {
+                width: 100%;
+            }
+
             &::before {
                 position: absolute;
                 content: '';
@@ -161,6 +170,11 @@
         font-size: 1.125rem;
         font-weight: 700;
         color: $c-blue-dark;
+
+        &:focus-visible {
+            outline: none;
+            color: $c-blue-dark;
+        }
 
         @include breakpoint('md') {
             font-weight: 400;
@@ -186,6 +200,12 @@
         position: relative;
         border: none;
         background-color: transparent;
+
+        &:focus-visible {
+            outline: 3px dotted $c-orange;
+            outline-offset: 12px;
+            border-radius: 50%;
+        }
 
         & svg {
             width: 22px;
@@ -234,11 +254,15 @@
         outline: 2px solid $c-white;
         border-radius: 50%;
         
+        &:focus-visible {
+            outline-color: $c-orange;
+        }
+
         @include breakpoint('md') {
             transition: outline-color 350ms ease-in-out;
 
             &:hover{
-                    outline-color: $c-orange;
+                outline-color: $c-orange;
             }
         }
     }
