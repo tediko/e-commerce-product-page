@@ -71,6 +71,10 @@
         width: 40px;
         height: 40px;
 
+        &:focus-visible {
+            @extend .focus;
+        }
+
         &::before {
             position: absolute;
             content: '';
@@ -110,8 +114,7 @@
         overflow: hidden;
 
         &:focus-visible {
-            outline: 3px dotted $c-orange;
-            outline-offset: 3px;
+            @extend .focus;
         }
 
         @include breakpoint('md') {
@@ -150,7 +153,7 @@
         }
 
         &.glide__bullet--active:focus-visible {
-            outline: 3px dotted $c-orange;
+            @extend .focus;
         }
 
         &.glide__bullet--active::before {
@@ -223,8 +226,7 @@
         border-radius: 12px;
 
         &:has(:focus-visible) {
-            outline: 3px dotted $c-orange;
-            outline-offset: 3px;
+            @extend .focus;
         }
 
         @include breakpoint('md') {
