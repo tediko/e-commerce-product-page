@@ -183,23 +183,51 @@
     }
 
     &__btn {
+        position: relative;
         border: none;
-        mask-image: url("/shared/icon-cart.svg");
-        mask-size: 100%;
-        mask-repeat: no-repeat;
-        mask-position: center;
-        background-color: $c-blue-dark-grayish;
-        width: 22px;
-        height: 20px;
-        transition: background-color 350ms ease-in-out;
+        background-color: transparent;
 
+        & svg {
+            width: 22px;
+            height: 20px;
+        }
+
+        & svg path {
+            fill: #69707D;
+            transition: fill 350ms ease-in-out;
+        }
+        
         @include breakpoint('md') {
             cursor: pointer;
 
-            &:hover {
-                background-color: $c-blue-dark;
+            &:hover svg path {
+                fill: $c-blue-dark;
             }
         }
+
+        &.active {
+            svg path {
+                fill: $c-blue-dark;
+            }
+
+            #{$root}__btn-preview {
+                display: block;
+            }
+        }
+    }
+
+    &__btn-preview {
+        display: none;
+        position: absolute;
+        top: -5px;
+        left: 10px;
+        width: 20px;
+        height: 13px;
+        background: $c-orange;
+        font-size: 0.625rem;
+        border-radius: 10px;
+        color: $c-white;
+        font-weight: 700;
     }
 
     &__profile {
