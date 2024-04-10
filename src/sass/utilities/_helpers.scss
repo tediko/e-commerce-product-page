@@ -103,6 +103,12 @@
 	white-space: nowrap !important;
 }
 
+/* Focus visible styles */
+.focus {
+    outline: 3px dotted $c-orange;
+    outline-offset: 3px;
+}
+
 /* Animations */
 @keyframes overlay-in {
     to {
