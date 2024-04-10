@@ -50,6 +50,11 @@
         cursor: pointer;
         z-index: 999;
 
+        &:focus-visible {
+            outline: 3px dotted $c-orange;
+            outline-offset: 3px;
+        }
+
         @include breakpoint('md') {
             display: none;
         }
@@ -255,7 +260,8 @@
         border-radius: 50%;
         
         &:focus-visible {
-            outline-color: $c-orange;
+            outline: 3px dotted $c-orange;
+            outline-offset: 3px;
         }
 
         @include breakpoint('md') {
