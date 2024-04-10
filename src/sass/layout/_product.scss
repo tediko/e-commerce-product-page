@@ -109,6 +109,11 @@
         border: none;
         overflow: hidden;
 
+        &:focus-visible {
+            outline: 3px dotted $c-orange;
+            outline-offset: 3px;
+        }
+
         @include breakpoint('md') {
             width: clamp(60px, -1.527rem + 10.98vw, 88px);
             height: clamp(60px, -1.527rem + 10.98vw, 88px);
@@ -142,6 +147,10 @@
 
         &.glide__bullet--active {
             outline: 2px solid $c-orange;
+        }
+
+        &.glide__bullet--active:focus-visible {
+            outline: 3px dotted $c-orange;
         }
 
         &.glide__bullet--active::before {
