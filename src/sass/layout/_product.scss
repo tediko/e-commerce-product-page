@@ -222,13 +222,13 @@
         padding-inline: 1.5rem;
         border-radius: 12px;
 
+        &:has(:focus-visible) {
+            outline: 3px dotted $c-orange;
+            outline-offset: 3px;
+        }
+
         @include breakpoint('md') {
             max-width: 9.8125rem;
-
-            &:has(:focus-visible) {
-                outline: 3px dotted $c-orange;
-                outline-offset: 3px;
-            }
         }
     }
 
