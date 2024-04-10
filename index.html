@@ -44,30 +44,17 @@
           </ul>
         </nav>
         <div class="header__options">
-          <button class="header__btn" type="button" aria-expanded="false" aria-label="toggle cart"></button>
+          <button class="header__btn" type="button" aria-expanded="false" aria-label="toggle cart" data-cart-button></button>
           <a href="#" class="header__profile" aria-label="user profile">
             <img class="header__profile-img" src="/shared/image-avatar.png" alt="">
           </a>
         </div>
       </div>
       <div class="header__cart-container container">
-        <div class="header__cart cart">
+        <div class="header__cart cart" data-cart-container>
           <h2 class="cart__title">Cart</h2>
-        <div class="cart__wrapper">
+        <div class="cart__wrapper" data-cart-wrapper>
           <p class="cart__info text text--700">Your cart is empty.</p>
-          <ul class="cart__list">
-            <li class="cart__item">
-              <img class="cart__item-image" src="/shared/image-product-1.jpg" alt="">
-              <div class="cart__item-wrapper">
-                <h3 class="cart__item-title text">Fall Limited Edition Sneakers</h3>
-                <p class="cart__item-price text">$125.00 x 3 <span class="text--700">$375.00</span></p>
-              </div>
-              <button class="cart__delete-btn" type="button" aria-label="delete item">
-                <img src="/shared/icon-delete.svg" alt="" aria-hidden="true">
-              </button>
-            </li>
-          </ul>
-          <button class="cart__checkout-btn button" type="button">Checkout</button>
         </div>
         </div>
       </div>
@@ -114,12 +101,12 @@
             <p class="product__paycut text text--orange text--700">50%</p>
             <p class="product__price-old text text--700 text--lt text--gray">$250.00</p>
           </div>
-          <form action="" class="product__form">
+          <form action="" class="product__form" data-product-form>
             <fieldset class="product__input-wrapper">
-              <button class="product__input-btn" type="button" aria-label="remove one item"></button>
+              <button class="product__input-btn" type="button" aria-label="remove one item" data-product-button="decrement"></button>
               <label class="sr-only" for="quantity">Quantity of a product</label>
-              <input class="product__input text text--700 text--black" type="number" name="product-quantity" id="quantity" placeholder="0">
-              <button class="product__input-btn product__input-btn--plus" type="button" aria-label="add one item"></button>
+              <input class="product__input text text--700 text--black" type="number" name="product-quantity" id="quantity" placeholder="0" data-product-input>
+              <button class="product__input-btn product__input-btn--plus" type="button" aria-label="add one item" data-product-button="increment"></button>
             </fieldset>
             <button class="product__submit button button--cart text text--700" type="submit">Add to cart</button>
           </form>
