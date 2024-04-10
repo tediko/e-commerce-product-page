@@ -210,13 +210,13 @@
                 fill: $c-blue-dark;
             }
 
-            #{$root}__btn-preview {
+            #{$root}__btn-counter {
                 display: block;
             }
         }
     }
 
-    &__btn-preview {
+    &__btn-counter {
         display: none;
         position: absolute;
         top: -5px;
