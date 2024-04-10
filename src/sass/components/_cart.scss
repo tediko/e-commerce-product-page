@@ -53,7 +53,13 @@
     &__delete-btn {
         border: none;
         background-color: transparent;
+        align-self: center;
         
+        &:focus-visible {
+            outline: 3px dotted $c-orange;
+            outline-offset: 3px;
+        }
+
         @include breakpoint('md') {
             cursor: pointer;
             transition: opacity 350ms ease-in-out;
