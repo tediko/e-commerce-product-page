@@ -3,7 +3,7 @@ const SLIDER_SELECTOR = document.querySelector('[data-glide]');
 
 let glide = new Glide(SLIDER_SELECTOR, {
   type: 'carousel',
-  startAt: 2,
+  startAt: 0,
   perView: 1,
   gap: 10,
   keyboard: true,
