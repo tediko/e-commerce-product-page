@@ -2,6 +2,9 @@ const menuButton = document.querySelector('[data-menu]');
 const menuList = document.querySelector('[data-menu-list]');
 const overlay = document.querySelector('[data-overlay]');
 const htmlElement = document.querySelector('html');
+
+const mediaQuery = '(min-width: 769px)';
+const mediaQueryList = window.matchMedia(mediaQuery);
 let isMenuOpen = false;
 let isAnimationEnd = true;
 let openClass = 'open';
@@ -42,5 +45,21 @@ const toggleMenu = () => {
     }
 }
 
+// Disable menu
+const disableMenu = () => {
+    isMenuOpen = false;
+    isAnimationEnd = true;
+    menuButton.ariaExpanded = false;
+    overlay.classList.remove(openClass, closeClass);
+    menuList.classList.remove(openClass, closeClass);
+    htmlElement.style.overflowY = 'unset';
+    overlay.removeEventListener('click', toggleMenu);
+}
+
 // Event listeners
+mediaQueryList.addEventListener('change', event => {
+    if (event.matches) {
+        disableMenu();
+    }
+})
 export default menuButton.addEventListener('click', toggleMenu);
