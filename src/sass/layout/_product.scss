@@ -200,6 +200,10 @@
         @include breakpoint('md') {
             grid-template-columns: auto 1fr;
         }
+
+        @include breakpoint('md') {
+            margin-bottom: 2rem;
+        }
     }
 
     &__paycut {
