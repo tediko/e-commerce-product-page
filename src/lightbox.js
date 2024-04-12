@@ -3,11 +3,12 @@ const LIGHTBOX_CONTAINER_SELECTOR = document.querySelector('[data-lightbox]');
 const LIGHTBOX_SLIDER_SELECTOR = document.querySelector('[data-glide="lightbox"]');
 const CLOSE_BUTTON_SELECTOR = document.querySelector('[data-lightbox-close]');
 const MAIN_SLIDER_SELECTOR = document.querySelector('[data-glide]');
-const TRACK_SELECTOR = document.querySelector('[data-glide-el="track"]');
+const MAIN_SLIDER_TRACK_SELECTOR = document.querySelector('[data-main-slider-track]');
 const OVERLAY_SELECTOR = document.querySelector('[data-overlay]');
 
 let mediaQuery = '(min-width: 1024px)';
 let mediaQueryList = window.matchMedia(mediaQuery);
+let isInitialized = false;
 
 // Initialize a Glide
 let glide = new Glide(LIGHTBOX_SLIDER_SELECTOR, {
@@ -24,17 +25,29 @@ glide.on('mount.before', () => {
     glide.update({startAt: MAIN_SLIDER_SELECTOR.dataset.glideIdx})
 })
 
+
 // Shows lightbox visually and mounts a Glide
 const showLightbox = () => {
+    isInitialized ? null : glide = new Glide(LIGHTBOX_SLIDER_SELECTOR, {
+        type: 'carousel',
+        startAt: MAIN_SLIDER_SELECTOR.dataset.glideIdx,
+        perView: 1,
+        gap: 10,
+        keyboard: true,
+        animationDuration: 600,
+    });
     LIGHTBOX_CONTAINER_SELECTOR.style.display = 'flex';
     OVERLAY_SELECTOR.classList.add('open');    
-    glide.mount();
+    isInitialized ? null : glide.mount();
+    isInitialized ? console.log('1') : console.log('moounted');;
+    isInitialized = true;
 }
 
 // Hides lightbox visually and removes event listener
 const removeLightbox = () => {
     hideLightbox();
-    TRACK_SELECTOR.removeEventListener('click', showLightbox);
+    MAIN_SLIDER_TRACK_SELECTOR.removeEventListener('click', showLightbox);
+    glide.destroy();
 }
 // Hides lightbox visually
 const hideLightbox = () => {
@@ -43,13 +56,20 @@ const hideLightbox = () => {
 }
 
 // Adds event listener on initialization if mediaQuery matches
-mediaQueryList.matches ? TRACK_SELECTOR.addEventListener('click', showLightbox) : null;
+// mediaQueryList.matches ? MAIN_SLIDER_TRACK_SELECTOR.addEventListener('click', showLightbox) : null;
+if (mediaQueryList.matches) {
+    MAIN_SLIDER_TRACK_SELECTOR.addEventListener('click', showLightbox);
+}
 
 // Event listeners
 mediaQueryList.addEventListener('change', event => {
-    event.matches ? 
-        TRACK_SELECTOR.addEventListener('click', showLightbox) : 
-        removeLightbox();
+        if (event.matches) {
+            MAIN_SLIDER_TRACK_SELECTOR.addEventListener('click', showLightbox)
+            isInitialized = false;
+        } else {
+            removeLightbox();
+            isInitialized = false;
+        }
 })
 CLOSE_BUTTON_SELECTOR.addEventListener('click', hideLightbox);
 OVERLAY_SELECTOR.addEventListener('click', hideLightbox);
