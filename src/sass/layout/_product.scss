@@ -239,6 +239,7 @@
 
         @include breakpoint('md') {
             max-width: 9.8125rem;
+            padding-inline: 1rem;
         }
     }
 
