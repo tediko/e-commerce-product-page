@@ -177,6 +177,10 @@
 
             &:nth-child(2) {
                 white-space: pre-line;
+
+                @include breakpoint('md') {
+                    margin-bottom: 2rem;
+                }
             }
         }
     }
