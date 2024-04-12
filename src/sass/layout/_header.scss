@@ -291,7 +291,7 @@
         margin-top: 0.5rem;
         margin-inline: -1rem;
         opacity: 0;
-        transform: translateX(100%);
+        transform: scale(0.8);
         
         @include breakpoint('sm') {
             max-width: 360px;
@@ -309,11 +309,11 @@
         }
 
         &.open {
-            animation: cart-in 500ms ease-in-out forwards;
+            animation: cart-in 350ms ease-in-out forwards;
         }
 
         &.close {
-            animation: cart-out 400ms ease-in-out forwards;
+            animation: cart-out 350ms ease-in-out forwards;
         }
     }
 }
