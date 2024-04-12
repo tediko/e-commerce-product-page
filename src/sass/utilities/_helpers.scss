@@ -147,22 +147,33 @@
 }
 
 @keyframes cart-in {
-    to {
+    0% {
         visibility: visible;
         opacity: 1;
-        transform: translateX(0);
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 @keyframes cart-out {
-    from {
+    0% {
         visibility: visible;
         opacity: 1;
-        transform: translateX(0); 
+        transform: scale(1);
     }
-    to {
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
         visibility: hidden;
         opacity: 0;
-        transform: translateX(100%);
+        transform: scale(0.8);
     }
 }
