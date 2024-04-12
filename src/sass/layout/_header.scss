@@ -143,8 +143,8 @@
     &__item {
         @include breakpoint('md') {
             position: relative;
-            padding-top: 1.75rem;
-            padding-bottom: 2.125rem;
+            padding-top: 2.9rem;
+            padding-bottom: 2.9rem;
             transition: width 350ms ease-in-out;
 
             &:has(#{$root}__link:hover)::before {
