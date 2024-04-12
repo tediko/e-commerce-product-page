@@ -6,7 +6,7 @@ const MAIN_SLIDER_SELECTOR = document.querySelector('[data-glide]');
 const MAIN_SLIDER_TRACK_SELECTOR = document.querySelector('[data-main-slider-track]');
 const OVERLAY_SELECTOR = document.querySelector('[data-overlay]');
 
-let mediaQuery = '(min-width: 1024px)';
+let mediaQuery = '(min-width: 769px)';
 let mediaQueryList = window.matchMedia(mediaQuery);
 let isInitialized = false;
 
