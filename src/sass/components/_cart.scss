@@ -18,7 +18,12 @@
     &__close-btn {
         border: none;
         background-color: transparent;
+        align-self: center;
         cursor: pointer;
+
+        &:focus-visible {
+            @extend .focus;
+        }
 
         &:hover svg path {
             fill: $c-orange;
