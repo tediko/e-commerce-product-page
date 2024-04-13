@@ -17,6 +17,10 @@
         align-self: end;
         cursor: pointer;
 
+        &:focus-visible {
+            @extend .focus;
+        }
+
         &:hover svg path {
             fill: $c-orange;
         }
