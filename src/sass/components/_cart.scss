@@ -6,14 +6,36 @@
     border-radius: 10px;
     z-index: 10;
 
-    &__title {
+    &__head {
+        display: flex;
+        justify-content: space-between;
         padding-inline: 1.5rem;
         padding-top: 1.5rem;
         padding-bottom: 1.6875rem;
         border-bottom: 1px solid $c-blue-grayish-light;
     }
 
-    &__wrapper {
+    &__close-btn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover svg path {
+            fill: $c-orange;
+        }
+
+        & svg {
+            width: 14px;
+            height: 15px;
+        }
+
+        & svg path {
+            fill: $c-blue-grayish;
+            transition: fill 350ms ease-in-out;
+        }
+    }
+
+    &__body {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
