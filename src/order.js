@@ -1,6 +1,6 @@
 const cartButton = document.querySelector('[data-cart-button]');
 const cartCounter = document.querySelector('[data-cart-counter]');
-const cartWrapper = document.querySelector('[data-cart-wrapper]');
+const cartBody = document.querySelector('[data-cart-body]');
 const formElement = document.querySelector('[data-product-form]');
 const operatorButtons = document.querySelectorAll('[data-product-button]');
 const inputElement = document.querySelector('[data-product-input]');
@@ -54,16 +54,16 @@ const showCartCounter = (hasItems) => {
     }
 }
 
-// Display orders items in cartWrapper element
+// Display orders items in cartBody element
 const displayOrdersInCart = () => {
     if (orders.length == 0) {
-        cartWrapper.innerHTML = `<p class="cart__info text text--700">Your cart is empty.</p>`;
+        cartBody.innerHTML = `<p class="cart__info text text--700">Your cart is empty.</p>`;
         showCartCounter(false)
         return;
     }
 
     showCartCounter(true)
-    cartWrapper.innerHTML = orders.map((order, index) => {
+    cartBody.innerHTML = orders.map((order, index) => {
         return `
         <ul class="cart__list">
             <li class="cart__item">
