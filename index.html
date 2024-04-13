@@ -55,10 +55,17 @@
       </div>
       <div class="header__cart-container container">
         <div class="header__cart cart" data-cart-container role="dialog" aria-describedby="cart-title">
-          <h2 id="cart-title" class="cart__title">Cart</h2>
-        <div class="cart__wrapper" data-cart-wrapper>
-          <p class="cart__info text text--700">Your cart is empty.</p>
-        </div>
+          <div class="cart__head">
+            <h2 id="cart-title" class="cart__title">Cart</h2>
+            <button class="cart__close-btn" aria-label="close cart" data-cart-close>
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+          <div class="cart__body" data-cart-body>
+            <p class="cart__info text text--700">Your cart is empty.</p>
+          </div>
         </div>
       </div>
     </header>
