@@ -39,7 +39,6 @@ const showLightbox = () => {
     LIGHTBOX_CONTAINER_SELECTOR.style.display = 'flex';
     OVERLAY_SELECTOR.classList.add('open');    
     isInitialized ? null : glide.mount();
-    isInitialized ? console.log('1') : console.log('moounted');;
     isInitialized = true;
 }
 
