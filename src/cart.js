@@ -5,6 +5,35 @@ let isCartOpen = false;
 let isAnimationEnd = true;
 const openClass = 'open';
 const closeClass = 'close';
+let focusedElementBeforeCartOpen;
+
+// Traps focus within cart container
+const focusTrap = () => {
+    focusedElementBeforeCartOpen = document.activeElement;
+    let focusableElements = cartContainer.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
+    let firstFocusableEl = focusableElements[0];
+    let lastFocusableEl = focusableElements[focusableElements.length - 1];
+    firstFocusableEl.focus();
+
+    let KEYCODE_TAB = 9;
+
+    cartContainer.addEventListener('keydown', (e) => {
+        let isTabPressed = (e.key === 'tab' || e.keyCode === KEYCODE_TAB);
+        if (!isTabPressed) return;
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusableEl) {
+                lastFocusableEl.focus();
+                e.preventDefault();
+            }
+        } else {
+            if (document.activeElement === lastFocusableEl) {
+                firstFocusableEl.focus();
+                e.preventDefault();
+            }
+        }
+    })
+}
 
 // Displays or hides a cart container
 const toggleCart = () => {
@@ -19,6 +48,7 @@ const toggleCart = () => {
 
     if (isCartOpen) {
         cartContainer.classList.add(openClass);
+        focusTrap();
 
         cartContainer.addEventListener('animationend', function cartOpen() {
             isAnimationEnd = !isAnimationEnd;
@@ -30,6 +60,7 @@ const toggleCart = () => {
         cartContainer.addEventListener('animationend', function cartClose() {
             isAnimationEnd = !isAnimationEnd;
             cartContainer.classList.remove(openClass, closeClass);
+            focusedElementBeforeCartOpen.focus();
 
             cartContainer.removeEventListener('animationend', cartClose);
             cartCloseButton.removeEventListener('click', toggleCart);
