@@ -14,6 +14,9 @@ const toggleCart = () => {
     cartButton.ariaExpanded = isCartOpen;
     isAnimationEnd = !isAnimationEnd;
 
+    const cartCloseButton = document.querySelector('[data-cart-close]');
+    cartCloseButton.addEventListener('click', toggleCart);
+
     if (isCartOpen) {
         cartContainer.classList.add(openClass);
 
@@ -29,6 +32,7 @@ const toggleCart = () => {
             cartContainer.classList.remove(openClass, closeClass);
 
             cartContainer.removeEventListener('animationend', cartClose);
+            cartCloseButton.removeEventListener('click', toggleCart);
         })
     }
 }
