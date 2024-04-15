@@ -1,3 +1,4 @@
+import { focusTrap } from "./cart";
 const cartButton = document.querySelector('[data-cart-button]');
 const cartCounter = document.querySelector('[data-cart-counter]');
 const cartBody = document.querySelector('[data-cart-body]');
@@ -42,6 +43,7 @@ const deleteItem = (itemIndex) => {
     orders.splice(itemIndex, 1);
     setLocalStorageItem();
     displayOrdersInCart();
+    focusTrap();
 }
 
 // Show quantity of orders and display them on cartCounter element
