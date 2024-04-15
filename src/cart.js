@@ -17,6 +17,10 @@ export const focusTrap = () => {
     firstFocusableEl.focus();
 
     cartContainer.addEventListener('keydown', (e) => {
+        focusableElements = cartContainer.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
+        firstFocusableEl = focusableElements[0];
+        lastFocusableEl = focusableElements[focusableElements.length - 1];
+
         let isTabPressed = (e.key === 'tab' || e.keyCode === KEYCODE_TAB);
         if (!isTabPressed) return;
 
