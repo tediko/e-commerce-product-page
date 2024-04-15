@@ -5,37 +5,38 @@ let isCartOpen = false;
 let isAnimationEnd = true;
 const openClass = 'open';
 const closeClass = 'close';
+let KEYCODE_TAB = 9;
+
+let focusableElements = cartContainer.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
+let firstFocusableEl = focusableElements[0];
+let lastFocusableEl = focusableElements[focusableElements.length - 1];
 let focusedElementBeforeCartOpen;
+
+const handleKeyDown = (e) => {
+    focusableElements = cartContainer.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
+    firstFocusableEl = focusableElements[0];
+    lastFocusableEl = focusableElements[focusableElements.length - 1];
+
+    let isTabPressed = (e.key === 'tab' || e.keyCode === KEYCODE_TAB);
+    if (!isTabPressed) return;
+
+    if (e.shiftKey) {
+        if (document.activeElement === firstFocusableEl) {
+            lastFocusableEl.focus();
+            e.preventDefault();
+        }
+    } else {
+        if (document.activeElement === lastFocusableEl) {
+            firstFocusableEl.focus();
+            e.preventDefault();
+        }
+    }
+}
 
 // Traps focus within cart container
 export const focusTrap = () => {
-    let focusableElements = cartContainer.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
-    let firstFocusableEl = focusableElements[0];
-    let lastFocusableEl = focusableElements[focusableElements.length - 1];
-    let KEYCODE_TAB = 9;
-
     firstFocusableEl.focus();
-
-    cartContainer.addEventListener('keydown', (e) => {
-        focusableElements = cartContainer.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
-        firstFocusableEl = focusableElements[0];
-        lastFocusableEl = focusableElements[focusableElements.length - 1];
-
-        let isTabPressed = (e.key === 'tab' || e.keyCode === KEYCODE_TAB);
-        if (!isTabPressed) return;
-
-        if (e.shiftKey) {
-            if (document.activeElement === firstFocusableEl) {
-                lastFocusableEl.focus();
-                e.preventDefault();
-            }
-        } else {
-            if (document.activeElement === lastFocusableEl) {
-                firstFocusableEl.focus();
-                e.preventDefault();
-            }
-        }
-    })
+    cartContainer.addEventListener('keydown', handleKeyDown)
 }
 
 function closeCartOnEscape(event) {
@@ -77,6 +78,7 @@ const toggleCart = () => {
             cartContainer.removeEventListener('animationend', cartClose);
             cartCloseButton.removeEventListener('click', toggleCart);
             cartContainer.removeEventListener('keydown', closeCartOnEscape);
+            cartContainer.removeEventListener('keydown', handleKeyDown);
         })
     }
 }
