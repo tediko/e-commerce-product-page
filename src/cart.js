@@ -8,13 +8,12 @@ const closeClass = 'close';
 let focusedElementBeforeCartOpen;
 
 // Traps focus within cart container
-const focusTrap = () => {
+export const focusTrap = () => {
     let focusableElements = cartContainer.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
     let firstFocusableEl = focusableElements[0];
     let lastFocusableEl = focusableElements[focusableElements.length - 1];
     let KEYCODE_TAB = 9;
 
-    focusedElementBeforeCartOpen = document.activeElement;
     firstFocusableEl.focus();
 
     cartContainer.addEventListener('keydown', (e) => {
@@ -52,9 +51,10 @@ const toggleCart = () => {
 
     const cartCloseButton = document.querySelector('[data-cart-close]');
     cartCloseButton.addEventListener('click', toggleCart);
-
+    
     if (isCartOpen) {
         cartContainer.classList.add(openClass);
+        focusedElementBeforeCartOpen = document.activeElement;
         focusTrap();
 
         cartContainer.addEventListener('keydown', closeCartOnEscape);
